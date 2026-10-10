@@ -2065,3 +2065,9 @@ width: 40vw;
 .scroll-indicator::after {
  width: var(--scroll-width, 0);
 }
+
+/* Keep the page from scrolling sideways: the rotating hero circle and the
+   slide-in animations extend past the screen edge. "clip" does this without
+   turning <body> into a scroll container; "hidden" is the fallback. */
+html, body { overflow-x: hidden; }
+@supports (overflow-x: clip) { html, body { overflow-x: clip; } }
